@@ -21,6 +21,7 @@ ssh:
   port: 2000
   logPath: app.log
   timestampFormat: yyyy-MM-dd HH:mm:ss,SSS
+  timestampPosixRegex: '[[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}[[:space:]]*[[:digit:]]{2}:[[:digit:]]{2}:[[:digit:]]{2}\\,[[:digit:]]{3}'
   credentials:
     user: sa
     password: sa

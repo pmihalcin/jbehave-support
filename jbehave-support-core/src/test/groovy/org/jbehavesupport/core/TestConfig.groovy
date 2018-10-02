@@ -1,6 +1,5 @@
 package org.jbehavesupport.core
 
-
 import org.jbehave.core.configuration.MostUsefulConfiguration
 import org.jbehavesupport.core.healthcheck.HealthCheck
 import org.jbehavesupport.core.healthcheck.HealthCheckSteps
@@ -21,6 +20,7 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.core.env.Environment
 
 import javax.annotation.PostConstruct
+
 import java.util.concurrent.RejectedExecutionException
 
 @Configuration
@@ -87,6 +87,7 @@ class TestConfig {
             .build();
 
         RollingLogResolver rollingLogResolver = new SimpleRollingLogResolver();
-        return new SshTemplate(passwordSetting, env.getProperty("ssh.timestampFormat"), rollingLogResolver);
+        return new SshTemplate(passwordSetting, env.getProperty("ssh.timestampFormat"),
+            env.getProperty("ssh.timestampPosixRegex"), rollingLogResolver);
     }
 }
